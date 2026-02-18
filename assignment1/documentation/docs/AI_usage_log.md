@@ -22,3 +22,19 @@ Missing values per column
 print("\nMissing Values:")
 print(df.isna().sum())
 
+Q: How would I get the descriptive statistics and create a text length distribution histogram for reviews.text only? Code only.
+
+R: import pandas as pd
+import matplotlib.pyplot as plt
+
+Descriptive statistics for review text length
+df["text_length"] = df["reviews.text"].astype(str).str.len()
+print(df["text_length"].describe())
+
+Histogram of text length distribution
+plt.figure(figsize=(10,5))
+plt.hist(df["text_length"], bins=40, color="skyblue", edgecolor="black")
+plt.title("Review Text Length Distribution")
+plt.xlabel("Text Length (characters)")
+plt.ylabel("Frequency")
+plt.show()
