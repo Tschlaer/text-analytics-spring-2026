@@ -1,6 +1,7 @@
 # Step 2
 Q: How would I show the columns, data types, number of rows, and missing values of the dataset? Code only.
-R: import pandas as pd
+R: 
+import pandas as pd
 
 # Load the dataset
 df = pd.read_csv("hotel_reviews.csv")
