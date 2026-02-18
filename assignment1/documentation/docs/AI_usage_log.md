@@ -46,7 +46,7 @@ plt.savefig("text_length_histogram.png", dpi=300, bbox_inches="tight")
 
 ### Png downloaded as white box so had to edit the plt.show() line to come after plt.savefig
 
-# Part 3
+# Step 3
 
 Q:Help clean data. Drop missing values standardizing text, removing white space, handling contractions, removing excess punctuation, catching spelling errors, convert numbers to words, convert date format. 
 
@@ -297,6 +297,15 @@ encodings = tokenizer(
     max_length=MAX_LEN,
     return_tensors="pt"      # return PyTorch tensors
 )
+
+5) (Optional) Attach tokenized vectors back to the DataFrame (IDs as lists)
+
+Warning: this can make your CSV large; prefer keeping tensors on disk (torch.save)
+df["input_ids"] = [row.tolist() for row in input_ids]
+df["attention_mask"] = [row.tolist() for row in attention_mask]
+
+Save a tokenized artifact (parquet handles lists efficiently)
+df.to_parquet("hotel_reviews_tokenized.parquet", index=False)
 
 input_ids = encodings["input_ids"]           # shape: [N, MAX_SEQ_LEN]
 attention_mask = encodings["attention_mask"] # shape: [N, MAX_SEQ_LEN]
