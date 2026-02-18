@@ -58,19 +58,13 @@ import contractions
 from textblob import TextBlob
 from num2words import num2words
 
-----------------------------
 Load dataset
-----------------------------
 df = pd.read_csv("hotel_reviews.csv")
 
----------------------------------------------------
 DROP ROWS WITH MISSING review.text VALUES
----------------------------------------------------
 df = df.dropna(subset=["reviews.text"]).copy()
 
----------------------------------------------------
 TEXT CLEANING FUNCTIONS
----------------------------------------------------
 
 def clean_text(text):
     # Convert to string
@@ -96,15 +90,11 @@ def clean_text(text):
 
     return text
 
----------------------------------------------------
 APPLY CLEANING TO reviews.text
----------------------------------------------------
 df["cleaned_text"] = df["reviews.text"].apply(clean_text)
 
----------------------------------------------------
 STANDARDIZE DATE COLUMNS (EXAMPLE: reviews.date)
 Convert to YYYY-MM-DD format
----------------------------------------------------
 def standardize_date(date_value):
     try:
         return pd.to_datetime(date_value).strftime("%Y-%m-%d")
@@ -117,9 +107,7 @@ for col in date_columns:
     if col in df.columns:
         df[col] = df[col].apply(standardize_date)
 
----------------------------------------------------
 SAVE CLEANED DATASET
----------------------------------------------------
 df.to_csv("hotel_reviews_cleaned.csv", index=False)
 
 Q: Apply cleaning to new dataframe rather than rewriting over current dataframe
@@ -132,22 +120,16 @@ import contractions
 from textblob import TextBlob
 from num2words import num2words
 
-----------------------------
 Load dataset
-----------------------------
 df = pd.read_csv("hotel_reviews.csv")
 
----------------------------------------------------
 CREATE NEW DATAFRAME FOR CLEANING
----------------------------------------------------
 df_clean = df.copy()
 
 Drop missing values only in new dataframe
 df_clean = df_clean.dropna(subset=["reviews.text"]).copy()
 
----------------------------------------------------
 TEXT CLEANING FUNCTIONS
----------------------------------------------------
 def clean_text(text):
     text = str(text)
 
@@ -175,14 +157,10 @@ def clean_text(text):
 
     return text
 
----------------------------------------------------
 APPLY CLEANING TO NEW DATAFRAME
----------------------------------------------------
 df_clean["cleaned_text"] = df_clean["reviews.text"].apply(clean_text)
 
----------------------------------------------------
 STANDARDIZE DATE COLUMNS IN NEW DATAFRAME
----------------------------------------------------
 def standardize_date(value):
     try:
         return pd.to_datetime(value).strftime("%Y-%m-%d")
@@ -195,7 +173,7 @@ for col in date_columns:
     if col in df_clean.columns:
         df_clean[col] = df_clean[col].apply(standardize_date)
 
----------------------------------------------------
 SAVE CLEAN VERSION
----------------------------------------------------
 df_clean.to_csv("hotel_reviews_cleaned.csv", index=False)
+# Cleaning applied to entire dataset rather than just to reviews.text, made changes to focus on reviews.text dataframe
+
