@@ -176,4 +176,6 @@ for col in date_columns:
 SAVE CLEAN VERSION
 df_clean.to_csv("hotel_reviews_cleaned.csv", index=False)
 ### Cleaning applied to entire dataset rather than just to reviews.text, made changes to focus on reviews.text dataframe
+### Textblob for spelling correction was taking too long to load so it was removed
+### Date formatting applied to other columns not reviews.text, removed. 
 
