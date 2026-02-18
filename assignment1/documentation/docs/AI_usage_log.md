@@ -175,5 +175,5 @@ for col in date_columns:
 
 SAVE CLEAN VERSION
 df_clean.to_csv("hotel_reviews_cleaned.csv", index=False)
-# Cleaning applied to entire dataset rather than just to reviews.text, made changes to focus on reviews.text dataframe
+### Cleaning applied to entire dataset rather than just to reviews.text, made changes to focus on reviews.text dataframe
 
