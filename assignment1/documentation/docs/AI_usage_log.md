@@ -43,3 +43,5 @@ Q: How would I make the histogram be downloadable to png?
 
 R: Save to PNG
 plt.savefig("text_length_histogram.png", dpi=300, bbox_inches="tight")
+
+### Png downloaded as white box so had to edit the plt.show() line to come after plt.savefig
