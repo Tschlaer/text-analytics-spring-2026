@@ -1,6 +1,6 @@
 # Step 2
 Q: How would I show the columns, data types, number of rows, and missing values of the dataset? Code only.
-R: 
+\nR: 
 import pandas as pd
 
 # Load the dataset
