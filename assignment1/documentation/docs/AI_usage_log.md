@@ -311,3 +311,24 @@ input_ids = encodings["input_ids"]           # shape: [N, MAX_SEQ_LEN]
 attention_mask = encodings["attention_mask"] # shape: [N, MAX_SEQ_LEN]
 
 print(input_ids.shape, attention_mask.shape)
+
+### In Colab used built-in Gemini AI help to create output aligned with assignment requirements
+
+# Step 6
+
+Q: Take a random sample of 100 from hotel_reviews_cleaned.csv 
+
+R:import pandas as pd
+
+Load cleaned dataset
+df_clean = pd.read_csv("hotel_reviews_cleaned.csv")
+
+Take random sample of 100 rows
+sample_100 = df_clean.sample(n=100, random_state=42)
+
+Save sample if needed
+sample_100.to_csv("hotel_reviews_sample_100.csv", index=False)
+
+Display head
+
+### Questions were inputted into Colab Gemini AI and outputs were automatically inputted into code
