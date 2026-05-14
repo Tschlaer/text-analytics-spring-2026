@@ -3,7 +3,7 @@
 **TO:** Technical Manager
 **FROM:** Thomas Schlaerth
 **RE:** Movie-Review Sentiment Classifier — Deployment Recommendation
-**DATE:** *[Submission Date]*
+
 
 ---
 
